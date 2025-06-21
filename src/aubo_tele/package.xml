@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<package format="2">
+<!-- <package> -->
+  <name>aubo_tele</name>
+  <!-- <version>1.5.0</version> -->
+  <version>0.0.0</version>
+  <description> This package contains the source code for testing and comparing trac_ik</description>
+  <maintainer email="lwmj@lwmj.com">lwmj</maintainer>
+  <license>BSD</license>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+
+  <build_depend>boost</build_depend>
+  <build_depend>trac_ik_lib</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+
+  <run_depend>boost</run_depend>
+  <run_depend>orocos_kdl</run_depend>
+  <run_depend>trac_ik_lib</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>message_generation</run_depend> -->
+
+  <!-- trac_ik -->
+  <build_depend>boost</build_depend>
+  <build_depend>trac_ik_lib</build_depend>
+  <build_depend>liborocos-kdl-dev</build_depend>
+
+ 
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>  
+<!-- trac_ik -->
+  <exec_depend>boost</exec_depend>
+  <exec_depend>liborocos-kdl</exec_depend>
+  <exec_depend>trac_ik_lib</exec_depend>
+
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_export_depend>message_generation</build_export_depend>
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+</package>

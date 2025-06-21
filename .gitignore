@@ -5,3 +5,6 @@
 build/
 devel/
 .catkin_workspace
+
+#忽略测试文件
+ik_test/

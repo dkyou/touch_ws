@@ -18,14 +18,23 @@ git clone git@github.com:dkyou/touch_ws.git
 cd touch_ws
 catkin_make
 ```
-3. 运行
+3. 运行phantom omni touch
 ```
 roslaunch omni_common omni_state.launch
 ```
-4. 运行结果
-启动rviz，并且显示phantom omni touch 即为成功，如图：
-![运行结果](https://github.com/dkyou/ImageHostingdku/blob/main/img/touch%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)
+启动rviz，并且显示phantom omni touch 即为成功
 
+4. 运行 aubo i5
+```bash
+roslaunch aubo_i5_moveit_config demo.launch
+```
+启动rviz，并且显示aubo i5 即为成功
+5. 计算逆解
+```bash
+roslaunch aubo_tele aubo_tele.launch
+```
+6. 效果
+可以在rivz仿真环境中，使用phantom omni touch控制aubo i5进行主从控制
 参考：
 1. fork仓库：https://github.com/fsuarez6/phantom_omni
 2. 来碗麻酱的主页：[来碗麻酱](https://blog.csdn.net/weixin_52725622?type=blog)

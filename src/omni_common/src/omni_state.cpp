@@ -587,7 +587,7 @@ int main(int argc, char** argv) {
   HDstring target_dev = device_name.c_str();
   // if (device_ret)
    {
-    ROS_ERROR("device name found");
+    // ROS_ERROR("device name found");
     ROS_INFO("device name: %s", device_name.c_str());
     std::cout << "device name: " << device_name << std::endl;
   }

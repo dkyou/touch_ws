@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="num_samples" default="1000" />
+  <arg name="chain_start" default="base_link" />
+  <arg name="chain_end"   default="wrist3_Link" />
+  <arg name="timeout" default="0.005" />
+
+  <param name="robot_description" textfile="$(find aubo_description)/urdf/aubo_i5.urdf" />
+  <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find aubo_description)/urdf/aubo_i5.urdf.xacro'" /> -->
+
+
+  <node name="aubo_tele_pose" pkg="aubo_tele" type="aubo_tele_pose" output="screen">  
+    <param name="num_samples" value="$(arg num_samples)"/>
+    <param name="chain_start" value="$(arg chain_start)"/>
+    <param name="chain_end" value="$(arg chain_end)"/>
+    <param name="timeout" value="$(arg timeout)"/>
+    <param name="urdf_param" value="/robot_description"/>
+  </node>
+
+
+</launch>
+
+
+
+
+
+

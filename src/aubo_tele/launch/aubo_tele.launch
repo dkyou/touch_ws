@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--作用：启动一个名为aubo_tele的节点-->
+<!-- roslaunch aubo_tele.launch
+│
+├── 启动 ROS Master（如未启动）
+├── 加载 robot_description 到参数服务器
+├── 解析 launch 参数 (num_samples, chain_start, ...)
+├── 启动 aubo_tele 节点
+│   └── 读取参数并初始化
+└── 输出日志到屏幕 
+调试：
+rosparam get /robot_description
+rosparam get /aubo_tele/num_samples
+-->
+<launch>
+  <arg name="num_samples" default="1000" /><!--采样次数 1000-->
+  <arg name="chain_start" default="base_link" /><!--起始关节-->
+  <arg name="chain_end"   default="wrist3_Link" /><!--末端关节-->
+  <arg name="timeout" default="0.005" /><!--超时时间  0.005-->
+  <!--使用textfile方式来加载urdf文件-->
+  <param name="robot_description" textfile="$(find aubo_description)/urdf/aubo_i5.urdf" />
+  <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find aubo_description)/urdf/aubo_i5.urdf.xacro'" /> -->
+
+  <!--节点名称   aubo_tele, 功能包 aubo_tele,可执行文件在cmakelist中定义-->
+  <node name="aubo_tele" pkg="aubo_tele" type="aubo_tele" output="screen">  
+    <param name="num_samples" value="$(arg num_samples)"/>
+    <param name="chain_start" value="$(arg chain_start)"/>
+    <param name="chain_end" value="$(arg chain_end)"/>
+    <param name="timeout" value="$(arg timeout)"/>
+    <param name="urdf_param" value="/robot_description"/>
+  </node>
+
+
+</launch>
+
+
+
+
+
+
