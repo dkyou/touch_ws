@@ -1,0 +1,29 @@
+<launch>
+    <param name="robot_description" command="cat $(find omni_description)/urdf/omni.urdf" />
+	<arg name="reference_frame" default="/map"/>
+	<arg name="units" default="mm"/>
+	<arg name="publish_rate" default="10"/>
+	<arg name="omni_name" default="phantom"/>
+	<!-- units是给urdf中的orgin collision标签用的 -->
+ 
+    <node name="omni_state" pkg="omni_common" type="omni_state" output="screen"> 
+	  <param name="omni_name" value="$(arg omni_name)"/>
+	  <param name="publish_rate" value="$(arg publish_rate)"/>
+	  <param name="reference_frame" value="$(arg reference_frame)"/>
+	  <param name="units" value="$(arg units)"/>
+	</node>
+	<!-- joint_state_publisher此节点打开会发生抖动现象 -->
+	<!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" >
+	<param name="rate" value="10"/>
+	</node> -->
+	<!-- 发布机器人关节状态（位置、速度、扭矩等）到/joint_states话题 -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+	</node>
+	
+	<node name="robot_state_publisher_omni" pkg="robot_state_publisher" type="robot_state_publisher">
+	<remap from="/joint_states" to="/joint_states_omni" />
+	</node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find omni_common)/launch/omni.rviz" required="true" />
+ 
+</launch>

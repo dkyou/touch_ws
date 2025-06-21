@@ -1,0 +1,6 @@
+# 忽略.vscode目录
+.vscode/
+
+# 忽略编译文件
+build/
+devel/
