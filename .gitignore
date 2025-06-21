@@ -4,3 +4,4 @@
 # 忽略编译文件
 build/
 devel/
+.catkin_workspace
